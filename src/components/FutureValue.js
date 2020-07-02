@@ -1,34 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './FutureValue.css';
 
-const futureValue = (props) => {
-    let presentValue = 1000;
-    let years = 10;
-    let interest = 1.5;
+class FutureValue extends Component {
 
-    return (
-        <div class="container">
-            <h1>Investing Calculation</h1>
-            <ul>
-                <label for="present-value">Initial amount: </label>
-                <input id="present-value" type="text" value={presentValue}></input>
-            </ul>
-            <ul>
-                <label for="years-time">Investment time (years): </label>
-                <input id="years-time" type="text" value={years}></input>
-            </ul>
-            <ul>
-                <label for="interest">Interest: </label>
-                <input id="interest" type="text" value={interest}></input><span> %</span>
-            </ul>
-            <ul>
-                <label for="monthly-payment">Monthly payment amount: </label>
-                <input id="monthly-payment" type="text" value={years}></input>
-            </ul>
-            <h3>Result: $ {futureValue}</h3>
-        </div>
-    )
+    state = {
+        initialAmount: 1000.25,
+        years: 18,
+        monthlyPayment: 1118.73,
+        interest: 1.1
+    }
+
+    handleInitialAmountChange = (e) => {
+        e.target.value > 100000000 ? e.target.value = 100000000 : this.setState({initialAmount: Number(e.target.value)});
+    }
+
+    handleInterestChange = (e) => {
+        e.target.value > 300 ? e.target.value = 300 : this.setState({interest: Number(e.target.value)});
+    }
+    
+    handlePeriodChange = (e) => {
+        e.target.value > 300 ? e.target.value = 300 : this.setState({years: Number(e.target.value)});
+    }
+
+    handleMonthlyPaymentChange = (e) =>{
+        e.target.value > 100000000 ? e.target.value = 100000000 : this.setState({monthlyPayment: Number(e.target.value)});
+    }
+
+    calculate() {
+        let futureValue = this.state.initialAmount;
+        
+        for (let i = 0; i < this.state.years * 12; i++) {
+            futureValue += this.state.monthlyPayment;
+            futureValue = futureValue + (futureValue * this.state.interest / 100);
+        }
+
+        return futureValue.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+    }
+
+    render() {
+        return(
+            <div className="container">
+                <h1>Compound Interest Simulation</h1>
+                <ul>
+                    <label htmlFor="initial-amount">Initial amount: </label>
+                    <input id="initial-amount" type="number" value={this.state.initialAmount} onChange={this.handleInitialAmountChange}></input>
+                </ul>
+                <ul>
+                    <label htmlFor="years-period">Investment time (years): </label>
+                    <input id="years-period" type="number" value={this.state.years} onChange={this.handlePeriodChange}></input>
+                </ul>
+                <ul>
+                    <label htmlFor="interest">Interest: </label>
+                    <input id="interest" type="number" pattern="\d+" step="0.01" value={this.state.interest} onChange={this.handleInterestChange}></input><span> % per month</span>
+                </ul>
+                <ul>
+                    <label htmlFor="monthly-payment">Monthly payment amount: </label>
+                    <input id="monthly-payment" type="number" value={this.state.monthlyPayment} onChange={this.handleMonthlyPaymentChange}></input>
+                </ul>
+                <h3>Result: {this.calculate()}</h3>
+            </div>
+        )
+    }
 }
 
-export default futureValue;
+export default FutureValue;
