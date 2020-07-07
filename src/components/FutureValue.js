@@ -5,7 +5,7 @@ import './FutureValue.css';
 class FutureValue extends Component {
 
     state = {
-        initialAmount: 1000.25,
+        initialAmount: 1000,
         years: 18,
         monthlyPayment: 1118.73,
         interest: 1.1
@@ -31,8 +31,8 @@ class FutureValue extends Component {
         let futureValue = this.state.initialAmount;
         
         for (let i = 0; i < this.state.years * 12; i++) {
-            futureValue += this.state.monthlyPayment;
             futureValue = futureValue + (futureValue * this.state.interest / 100);
+            futureValue += this.state.monthlyPayment;
         }
 
         return futureValue.toLocaleString('en-US', {
