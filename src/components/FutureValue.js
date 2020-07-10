@@ -54,7 +54,7 @@ class FutureValue extends Component {
                     <input id="years-period" type="number" step="0.5" value={this.state.years} onChange={this.handlePeriodChange}></input>
                 </ul>
                 <ul>
-                    <label htmlFor="interest">Interest: </label>
+                    <label htmlFor="interest">Interest rate: </label>
                     <input id="interest" type="number" pattern="\d+" step="0.01" value={this.state.interest} onChange={this.handleInterestChange}></input><span> % per month</span>
                 </ul>
                 <ul>
