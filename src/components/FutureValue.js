@@ -44,7 +44,7 @@ class FutureValue extends Component {
     render() {
         return(
             <div className="container">
-                <h1>Compound Interest Simulation</h1>
+                <h1>The Compound Effect</h1>
                 <ul>
                     <label htmlFor="initial-amount">Initial amount: </label>
                     <input id="initial-amount" type="number" value={this.state.initialAmount} onChange={this.handleInitialAmountChange}></input>
