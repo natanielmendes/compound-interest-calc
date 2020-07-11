@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    document.title = "Compound Interest Simulation"
+    document.title = "The Compound Effect"
   }, []);
 
   return (
