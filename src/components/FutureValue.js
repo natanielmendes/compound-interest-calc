@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './FutureValue.css';
+import styles from './FutureValue.module.css';
 
 class FutureValue extends Component {
 
@@ -43,7 +43,7 @@ class FutureValue extends Component {
 
     render() {
         return(
-            <div className="container">
+            <div className={styles.container}>
                 <h1>The Compound Effect</h1>
                 <ul>
                     <label htmlFor="initial-amount">Initial amount: </label>
