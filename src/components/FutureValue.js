@@ -5,9 +5,9 @@ import styles from './FutureValue.module.css';
 class FutureValue extends Component {
 
     state = {
-        initialAmount: 1000,
-        years: 18,
-        monthlyPayment: 1118.73,
+        initialAmount: 80000,
+        years: 5,
+        monthlyPayment: 12000,
         interest: 1.1
     }
 
