@@ -2,8 +2,9 @@ This Compound Interest Effect project was bootstrapped with [Create React App](h
 
 ## Available Scripts
 
-In the project directory, you can run:
+From the project directory, simply run:
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.<br />
