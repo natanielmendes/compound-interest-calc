@@ -2,7 +2,7 @@ This Compound Interest Effect project was bootstrapped with [Create React App](h
 
 ## Available Scripts
 
-From the project directory, simply run:
+From the project directory, go to a terminal and run the following commands from the project folder:
 
 ### `npm install`
 ### `npm start`
